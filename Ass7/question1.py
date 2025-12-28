@@ -10,7 +10,7 @@ import os
 load_dotenv()
 
 st.set_page_config(page_title="CSV SQL Chatbot", layout="wide")
-st.title("📊 CSV Chatbot using SQL + LLM")
+st.title(" CSV Chatbot using SQL + LLM")
 
 # Initialize LLM
 llm = init_chat_model(
@@ -26,10 +26,10 @@ uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
 if uploaded_file:
     data = pd.read_csv(uploaded_file)
 
-    st.subheader("📌 CSV Preview")
+    st.subheader(" CSV Preview")
     st.dataframe(data.head())
 
-    st.subheader("📌 CSV Schema")
+    st.subheader(" CSV Schema")
     st.write(data.dtypes)
 
     # Bind DataFrame for SQL
@@ -56,14 +56,14 @@ if uploaded_file:
         with st.spinner("Generating SQL..."):
             sql_query = llm.invoke(sql_prompt).content.strip()
 
-        st.subheader("🧾 Generated SQL")
+        st.subheader(" Generated SQL")
         st.code(sql_query, language="sql")
 
         # Execute SQL
         try:
             result_df = pysqldf(sql_query)
 
-            st.subheader("📊 Query Result")
+            st.subheader("Query Result")
             st.dataframe(result_df)
 
         except Exception as e:
@@ -88,5 +88,5 @@ if uploaded_file:
         with st.spinner("Explaining result..."):
             explanation = llm.invoke(explain_prompt)
 
-        st.subheader("🧠 Explanation")
+        st.subheader("Explanation")
         st.success(explanation.content)

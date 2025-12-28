@@ -27,7 +27,6 @@ city = st.text_input("Enter city name")
 
 if st.button("Get Weather") and city:
 
-    # ---------------- Requirement 1 & 2 ----------------
     # Call Weather API
     url = (
         f"https://api.openweathermap.org/data/2.5/weather"
@@ -37,7 +36,7 @@ if st.button("Get Weather") and city:
     response = requests.get(url)
 
     if response.status_code != 200:
-        st.error("❌ City not found or API error")
+        st.error(" City not found or API error")
         st.stop()
 
     weather_data = response.json()
