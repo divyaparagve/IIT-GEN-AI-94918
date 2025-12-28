@@ -9,7 +9,7 @@ load_dotenv()
 
 # Streamlit page config
 st.set_page_config(page_title="Weather Explanation App", layout="centered")
-st.title("🌤️ Weather Explanation using LLM")
+st.title(" Weather Explanation using LLM")
 
 # Initialize LLM
 llm = init_chat_model(
@@ -49,11 +49,11 @@ if st.button("Get Weather") and city:
     wind_speed = weather_data["wind"]["speed"]
 
     # Display raw weather info
-    st.subheader("📌 Current Weather Data")
-    st.write(f"🌡️ Temperature: {temperature} °C")
-    st.write(f"💧 Humidity: {humidity}%")
-    st.write(f"🌬️ Wind Speed: {wind_speed} m/s")
-    st.write(f"☁️ Condition: {description}")
+    st.subheader(" Current Weather Data")
+    st.write(f" Temperature: {temperature} °C")
+    st.write(f" Humidity: {humidity}%")
+    st.write(f" Wind Speed: {wind_speed} m/s")
+    st.write(f" Condition: {description}")
 
     # ---------------- Requirement 3 ----------------
     # Ask LLM to explain weather
@@ -71,5 +71,5 @@ if st.button("Get Weather") and city:
     with st.spinner("Explaining weather..."):
         explanation = llm.invoke(explain_prompt)
 
-    st.subheader("🧠 Weather Explanation")
+    st.subheader(" Weather Explanation")
     st.success(explanation.content)
