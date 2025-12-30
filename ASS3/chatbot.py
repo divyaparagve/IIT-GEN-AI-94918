@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Page title
-st.title("🤖  Shriram mali")
+st.title("🤖 chatbot")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -20,11 +20,11 @@ def bot_reply(user_text):
     user_text = user_text.lower()
 
     if "hello  " in user_text or "hi" in user_text:
-        return "plz come mali  😊 "
+        return "hello "
     elif "i want to say" in user_text:
-        return "plx come here."
-    elif "come fast" in user_text:
-        return " i am waiting 👋"
+        return "say"
+    elif "about sunbeam" in user_text:
+        return " yes"
     else:
         return "Sorry, I didn't understand that."
 
